@@ -145,6 +145,7 @@ JoinForm.prototype.validateField = function (fieldName, text) {
     if(field.isPassword){
 		 if (! this.isPassword(text, field.isPassword[0].value) ) {
 		            throw new Error(field.isPassword[0]);
+
         }
 	}
     if (field.noMatch) {
@@ -249,9 +250,9 @@ JoinForm.prototype.validateForm = function () {
             // Uncomment the following if statement to add an ARIA alert to the error message
             // Only the last alert is read, so limit alerts to the first error
             // so it matches with focus sent to the first message
-            //if(error_count == 1){
-            //	$s(fieldName + "_error").setAttribute("role", "alert");
-            //}
+            if(error_count == 1){
+                $s(fieldName + "_error").setAttribute("role", "alert");
+            }
             $s(fieldName + "_error").firstChild.nodeValue = error.message;
             if(error_count == 1){
             	$s(fieldName).focus();
@@ -265,7 +266,7 @@ JoinForm.prototype.validateForm = function () {
         $s("feedback").firstChild.nodeValue = this.success;
         $s("feedback").className = "feedback";
        // Uncomment the next line to add an ARIA alert to the feedback message
-       // $s("feedback").setAttribute("role", "alert");
+        $s("feedback").setAttribute("role", "alert");
     }
     return hasErrors;
 }
