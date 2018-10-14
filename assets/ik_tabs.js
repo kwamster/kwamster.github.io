@@ -95,7 +95,7 @@ Plugin.prototype.onKeyDown = function (event) {
 				$tab = $('<li/>').attr({
           'id': id + '_tab' + i, // create unique id for a tab
           'role': 'tab', // assign tab role
-          'aria-controls': 'panel' + i // define which panel it controls
+          'aria-controls': id + '_panel' + i // define which panel it controls
 				})
         
 				.text(lbl > '' ? lbl : 'Tab ' + (i + 1))
@@ -149,7 +149,8 @@ Plugin.prototype.onKeyDown = function (event) {
       });      
 			
 		
-		if (event.type) $($tabs[ind]).focus(); // move focus to current tab if reached by mouse or keyboard
+		//sam if (event.type) $($tabs[ind]).focus(); // move focus to current tab if reached by mouse or keyboard
+		$($tabs[ind]).focus();
 		
     $panels // hide all panels
         .attr({
