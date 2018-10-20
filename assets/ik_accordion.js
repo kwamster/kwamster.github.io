@@ -95,9 +95,11 @@
 				if($btn[0] != $(event.currentTarget)[0]) { 
 					$btn.removeClass('expanded');
 					$hdr.next().slideUp(plugin.options.animationSpeed);
+					$btn.attr('aria-expanded','false');
 				} else { 
 					$btn.addClass('expanded');
 					$hdr.next().slideDown(plugin.options.animationSpeed);
+					$btn.attr('aria-expanded','true');
 				}
 			});
 			
